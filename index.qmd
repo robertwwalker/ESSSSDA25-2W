@@ -2,7 +2,7 @@
 title: "ESSSSDA25-2W"
 listing:
   contents: posts
-  sort: "date desc"
+  sort: "date asc"
   type: default
   categories: true
 page-layout: full
