@@ -1,0 +1,41 @@
+project:
+  type: website
+
+website:
+  title: "ESSSSDA 2025 2W: Time Series and Collections of Them"
+  navbar:
+    right:
+      - posts/welcome/index.qmd
+      - about.qmd
+      - icon: github
+        href: https://github.com/robertwwalker/ESSSSDA25-2W/
+      - icon: github
+        href: https://github.com/robertwwalker/Essex-Data/
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Welcome to 2W!"
+        file: posts/welcome/index.qmd
+      - section: "Week 1"
+        contents:
+          - posts/day-1/index.qmd
+          - posts/day-2/index.qmd
+          - posts/day-3/index.qmd
+          - posts/day-4/index.qmd
+          - posts/day-5/index.qmd
+      - section: "Week 2"
+        contents:
+          - posts/day-6/index.qmd
+          - posts/day-7/index.qmd
+          - posts/day-8/index.qmd
+          - posts/day-9/index.qmd
+          - posts/day-10/index.qmd
+
+format:
+  html:
+    theme: morph
+    css: styles.css
+    toc: true
+
+
