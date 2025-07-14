@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robert W. Walker">
-<meta name="dcterms.date" content="2022-08-17">
+<meta name="dcterms.date" content="2025-07-30">
 
 <title>Day 8: Panel Models for Limited Outcomes – ESSSSDA 2025 2W: Time Series and Collections of Them</title>
 <style>
@@ -188,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 17, 2022</p>
+        <p class="date">July 30, 2025</p>
       </div>
     </div>
     
@@ -392,10 +392,6 @@ Call:
 glm(formula = PAT ~ LOGR + LOGR1 + LOGR2 + LOGR3 + LOGR4 + LOGR5 + 
     dyear2 + dyear3 + dyear4 + dyear5, family = "poisson", data = Patents)
 
-Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--24.1602   -3.0131   -1.6689    0.2972   23.3629  
-
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)  1.82831    0.01253 145.861  &lt; 2e-16 ***
@@ -431,10 +427,6 @@ Call:
 glm.nb(formula = PAT ~ LOGR + LOGR1 + LOGR2 + LOGR3 + LOGR4 + 
     LOGR5 + dyear2 + dyear3 + dyear4 + dyear5, data = Patents, 
     init.theta = 1.276776486, link = log)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.6541  -1.0412  -0.3894   0.2827   4.3518  
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)    
@@ -789,10 +781,6 @@ Call:
 glm(formula = dispute ~ dem + growth + allies + contig + capratio + 
     trade, family = binomial("logit"), data = BKT.data)
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--0.748  -0.319  -0.261  -0.152   4.096  
-
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept) -3.29e+00   7.92e-02  -41.54  &lt; 2e-16 ***
@@ -825,10 +813,6 @@ Number of Fisher Scoring iterations: 8</code></pre>
 Call:
 glm(formula = dispute ~ dem + growth + allies + contig + capratio + 
     trade + as.factor(py), family = binomial("logit"), data = BKT.data)
-
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--1.362  -0.225  -0.140  -0.080   3.988  
 
 Coefficients:
                  Estimate Std. Error z value Pr(&gt;|z|)    
@@ -895,10 +879,6 @@ glm(formula = dispute ~ dem + growth + allies + contig + capratio +
     trade + py + pys1 + pys2 + pys3, family = binomial("logit"), 
     data = BKT.data)
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--1.349  -0.221  -0.138  -0.092   4.063  
-
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)  8.50e-01   1.60e-01    5.31  1.1e-07 ***
@@ -934,10 +914,6 @@ glm(formula = dispute ~ dem + growth + allies + contig + capratio +
     trade, family = binomial("logit"), data = BKT.data, subset = contdisp != 
     1)
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--0.520  -0.218  -0.169  -0.120   3.868  
-
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept) -4.33e+00   1.15e-01  -37.78  &lt; 2e-16 ***
@@ -968,10 +944,6 @@ Call:
 glm(formula = dispute ~ dem + growth + allies + contig + capratio + 
     trade + py + pys1 + pys2 + pys3, family = binomial("logit"), 
     data = BKT.data, subset = contdisp != 1)
-
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--0.734  -0.210  -0.135  -0.098   3.732  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
@@ -1007,10 +979,6 @@ Call:
 glm(formula = dispute ~ dem + growth + allies + contig + capratio + 
     trade + py + pys1 + pys2 + pys3, family = binomial("logit"), 
     data = BKT.data, subset = prefail &lt; 1)
-
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--0.682  -0.159  -0.109  -0.081   3.856  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
@@ -1050,10 +1018,6 @@ glm(formula = dispute ~ dem + growth + allies + contig + capratio +
     trade + prefail + py + I(py^2) + I(py^3), family = binomial("logit"), 
     data = BKT.data)
 
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--2.576  -0.192  -0.128  -0.092   3.754  
-
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept) -1.14e+00   1.18e-01   -9.64  &lt; 2e-16 ***
@@ -1089,10 +1053,6 @@ Call:
 glm(formula = dispute ~ dem + growth + allies + contig + capratio + 
     trade + prefail + py + I(py^2) + I(py^3), family = binomial("cloglog"), 
     data = BKT.data)
-
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--3.396  -0.194  -0.134  -0.097   3.700  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    

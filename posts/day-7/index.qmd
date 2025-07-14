@@ -1,7 +1,7 @@
 ---
 title: "Day 7: Missing Data"
 author: "Robert W. Walker"
-date: "08/16/2022"
+date: "07/29/2025"
 categories: [panel data, code, analysis]
 image: "image.png"
 ---
@@ -117,7 +117,7 @@ A simple multivariate normal is easy as long as the data are well behaved.  NB: 
 
 ```{r}
 library(Amelia)
-library(Zelig)
+#library(Zelig)
 # Shorten the dataset
 ISQ99.4MI <- ISQ99_Essex[,c(1,2,5:11,13:21)]
 a.out <- amelia(ISQ99.4MI, m=5, ts="YEAR", cs="IDORIGIN", noms=c("MIL2","LEFT","BRIT","CWARCOW","IWARCOW2"), ords = c("AINEW","SDNEW","AILAG","SDLAG","POLRT"))
@@ -141,11 +141,18 @@ Now let's analyze it.
 Not a correct model but a first start.
 
 ```{r}
-devtools::install_github("IQSS/ZeligChoice")
-library(ZeligChoice)
-Model.a2 <- zelig(AINEW ~ AILAG + MIL2 + LEFT + BRIT + CWARCOW + IWARCOW2 + PCGTHOU + PERCHPOP + DEMOC3, model = "ls", data = a.out2)
-summary(Model.a2)
+# devtools::install_github("IQSS/ZeligChoice")
+library(clarify)
+model.list <- with(a.out, lm(AINEW ~ AILAG + MIL2 + LEFT + BRIT + CWARCOW + IWARCOW2 + PCGTHOU + PERCHPOP + DEMOC3))
+si <- misim(model.list, n=1000)
+si
 ```
+
+```{r}
+est_mi <- sim_ame(si, var = "DEMOC3", verbose = FALSE)
+summary(est_mi)
+```
+
 
 ## More General
 

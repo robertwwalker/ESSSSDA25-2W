@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robert W. Walker">
-<meta name="dcterms.date" content="2022-08-16">
+<meta name="dcterms.date" content="2025-07-29">
 
 <title>Day 7: Missing Data – ESSSSDA 2025 2W: Time Series and Collections of Them</title>
 <style>
@@ -188,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 16, 2022</p>
+        <p class="date">July 29, 2025</p>
       </div>
     </div>
     
@@ -367,16 +367,18 @@ mi estimate: xtreg AINEW AILAG DEMOC3, fe</code></pre>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::between() masks plm::between()
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks plm::lag(), stats::lag()
-✖ dplyr::lead()    masks plm::lead()</code></pre>
+✖ dplyr::lead()    masks plm::lead()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ISQ99_Essex <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(<span class="st">"./img/ISQ99-Essex.dta"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ISQ99p <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(ISQ99_Essex, <span class="fu">c</span>(<span class="st">"IDORIGIN"</span>, <span class="st">"YEAR"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -388,14 +390,14 @@ mi estimate: xtreg AINEW AILAG DEMOC3, fe</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ISQ99_Essex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    IDORIGIN          YEAR            AI              SD            POLRT      
- Min.   :  2.0   Min.   :1976   Min.   :1.000   Min.   :1.000   Min.   :1.000  
- 1st Qu.:290.0   1st Qu.:1980   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:2.000  
- Median :435.0   Median :1984   Median :3.000   Median :2.000   Median :3.000  
- Mean   :446.7   Mean   :1984   Mean   :2.753   Mean   :2.241   Mean   :3.809  
- 3rd Qu.:640.0   3rd Qu.:1989   3rd Qu.:3.000   3rd Qu.:3.000   3rd Qu.:6.000  
- Max.   :990.0   Max.   :1993   Max.   :5.000   Max.   :5.000   Max.   :7.000  
-                                NA's   :1061    NA's   :587     NA's   :382    
+<pre><code>    IDORIGIN          YEAR            AI              SD            POLRT     
+ Min.   :  2.0   Min.   :1976   Min.   :1.000   Min.   :1.000   Min.   :1.00  
+ 1st Qu.:290.0   1st Qu.:1980   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:2.00  
+ Median :435.0   Median :1984   Median :3.000   Median :2.000   Median :3.00  
+ Mean   :446.7   Mean   :1984   Mean   :2.753   Mean   :2.241   Mean   :3.81  
+ 3rd Qu.:640.0   3rd Qu.:1989   3rd Qu.:3.000   3rd Qu.:3.000   3rd Qu.:6.00  
+ Max.   :990.0   Max.   :1993   Max.   :5.000   Max.   :5.000   Max.   :7.00  
+                                NA's   :1061    NA's   :587     NA's   :382   
       MIL2             LEFT             BRIT            PCGNP      
  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :   52  
  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:  390  
@@ -562,7 +564,7 @@ all NA in ind. dimension for at least one time period: AI SD POLRT MIL2 LEFT BRI
 <p>A simple multivariate normal is easy as long as the data are well behaved. NB: This uses none of the time series or cross-sectional dimensionality for identification.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Amelia)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Zelig)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(Zelig)</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Shorten the dataset</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>ISQ99<span class="fl">.4</span>MI <span class="ot">&lt;-</span> ISQ99_Essex[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span><span class="sc">:</span><span class="dv">11</span>,<span class="dv">13</span><span class="sc">:</span><span class="dv">21</span>)]</span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>a.out <span class="ot">&lt;-</span> <span class="fu">amelia</span>(ISQ99<span class="fl">.4</span>MI, <span class="at">m=</span><span class="dv">5</span>, <span class="at">ts=</span><span class="st">"YEAR"</span>, <span class="at">cs=</span><span class="st">"IDORIGIN"</span>, <span class="at">noms=</span><span class="fu">c</span>(<span class="st">"MIL2"</span>,<span class="st">"LEFT"</span>,<span class="st">"BRIT"</span>,<span class="st">"CWARCOW"</span>,<span class="st">"IWARCOW2"</span>), <span class="at">ords =</span> <span class="fu">c</span>(<span class="st">"AINEW"</span>,<span class="st">"SDNEW"</span>,<span class="st">"AILAG"</span>,<span class="st">"SDLAG"</span>,<span class="st">"POLRT"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -698,39 +700,23 @@ IWARCOW2       0.11793917</code></pre>
 <h1>Some Analysis</h1>
 <p>Not a correct model but a first start.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"IQSS/ZeligChoice"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ZeligChoice)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Model.a2 <span class="ot">&lt;-</span> <span class="fu">zelig</span>(AINEW <span class="sc">~</span> AILAG <span class="sc">+</span> MIL2 <span class="sc">+</span> LEFT <span class="sc">+</span> BRIT <span class="sc">+</span> CWARCOW <span class="sc">+</span> IWARCOW2 <span class="sc">+</span> PCGTHOU <span class="sc">+</span> PERCHPOP <span class="sc">+</span> DEMOC3, <span class="at">model =</span> <span class="st">"ls"</span>, <span class="at">data =</span> a.out2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("IQSS/ZeligChoice")</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clarify)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>model.list <span class="ot">&lt;-</span> <span class="fu">with</span>(a.out, <span class="fu">lm</span>(AINEW <span class="sc">~</span> AILAG <span class="sc">+</span> MIL2 <span class="sc">+</span> LEFT <span class="sc">+</span> BRIT <span class="sc">+</span> CWARCOW <span class="sc">+</span> IWARCOW2 <span class="sc">+</span> PCGTHOU <span class="sc">+</span> PERCHPOP <span class="sc">+</span> DEMOC3))</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>si <span class="ot">&lt;-</span> <span class="fu">misim</span>(model.list, <span class="at">n=</span><span class="dv">1000</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>si</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>How to cite this model in Zelig:
-  R Core Team. 2007.
-  ls: Least Squares Regression for Continuous Dependent Variables
-  in Christine Choirat, Christopher Gandrud, James Honaker, Kosuke Imai, Gary King, and Olivia Lau,
-  "Zelig: Everyone's Statistical Software," https://zeligproject.org/</code></pre>
+<pre><code>A `clarify_misim` object
+ - 10 coefficients, 5 imputations with 1000 simulated values each
+ - sampled distributions: multivariate t(3160)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model.a2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>est_mi <span class="ot">&lt;-</span> <span class="fu">sim_ame</span>(si, <span class="at">var =</span> <span class="st">"DEMOC3"</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(est_mi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model: Combined Imputations 
-
-             Estimate Std.Error z value Pr(&gt;|z|)
-(Intercept)  1.040136  0.055780   18.65  &lt; 2e-16
-AILAG        0.621404  0.017965   34.59  &lt; 2e-16
-MIL2         0.110257  0.035754    3.08  0.00204
-LEFT        -0.074708  0.046963   -1.59  0.11166
-BRIT        -0.112423  0.030393   -3.70  0.00022
-CWARCOW      0.532683  0.055780    9.55  &lt; 2e-16
-IWARCOW2     0.180371  0.071370    2.53  0.01150
-PCGTHOU     -0.016131  0.003344   -4.82  1.4e-06
-PERCHPOP    -0.000936  0.003508   -0.27  0.78956
-DEMOC3      -0.030649  0.004348   -7.05  1.8e-12
-
-For results from individual imputed datasets, use summary(x, subset = i:j)
-Statistical Warning: The GIM test suggests this model is misspecified
- (based on comparisons between classical and robust SE's; see http://j.mp/GIMtest).
- We suggest you run diagnostics to ascertain the cause, respecify the model
- and run it again.
-
-Next step: Use 'setx' method</code></pre>
+<pre><code>                Estimate   2.5 %  97.5 %
+E[dY/d(DEMOC3)]  -0.0324 -0.0418 -0.0230</code></pre>
 </div>
 </div>
 <section id="more-general" class="level2">
@@ -781,21 +767,19 @@ Next step: Use 'setx' method</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 12
 # Groups:   m [5]
-   m     key      (Inte…¹  AILAG    BRIT CWARCOW   DEMOC3 IWARC…²    LEFT   MIL2
-   &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
- 1 imp1  estimate  1.08   0.607  -0.106   0.583  -0.0314   0.187  -0.0867 0.112 
- 2 imp1  std.err…  0.0485 0.0136  0.0279  0.0454  0.00380  0.0456  0.0362 0.0316
- 3 imp2  estimate  1.04   0.623  -0.125   0.520  -0.0334   0.201  -0.114  0.0874
- 4 imp2  std.err…  0.0462 0.0129  0.0267  0.0436  0.00364  0.0443  0.0353 0.0305
- 5 imp3  estimate  0.999  0.637  -0.121   0.537  -0.0281   0.106  -0.0685 0.133 
- 6 imp3  std.err…  0.0455 0.0128  0.0264  0.0432  0.00364  0.0431  0.0343 0.0301
- 7 imp4  estimate  1.03   0.625  -0.116   0.503  -0.0313   0.162  -0.0360 0.113 
- 8 imp4  std.err…  0.0469 0.0132  0.0271  0.0458  0.00373  0.0441  0.0348 0.0312
- 9 imp5  estimate  1.05   0.615  -0.0938  0.521  -0.0291   0.245  -0.0686 0.106 
-10 imp5  std.err…  0.0465 0.0130  0.0269  0.0445  0.00367  0.0428  0.0351 0.0308
-# … with 2 more variables: PCGTHOU &lt;dbl&gt;, PERCHPOP &lt;dbl&gt;, and abbreviated
-#   variable names ¹​`(Intercept)`, ²​IWARCOW2
-# ℹ Use `colnames()` to see all variable names</code></pre>
+   m     key      `(Intercept)`  AILAG    BRIT CWARCOW   DEMOC3 IWARCOW2    LEFT
+   &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+ 1 imp1  estimate        1.08   0.607  -0.106   0.583  -0.0314    0.187  -0.0867
+ 2 imp1  std.err…        0.0485 0.0136  0.0279  0.0454  0.00380   0.0456  0.0362
+ 3 imp2  estimate        1.04   0.623  -0.125   0.520  -0.0334    0.201  -0.114 
+ 4 imp2  std.err…        0.0462 0.0129  0.0267  0.0436  0.00364   0.0443  0.0353
+ 5 imp3  estimate        0.999  0.637  -0.121   0.537  -0.0281    0.106  -0.0685
+ 6 imp3  std.err…        0.0455 0.0128  0.0264  0.0432  0.00364   0.0431  0.0343
+ 7 imp4  estimate        1.03   0.625  -0.116   0.503  -0.0313    0.162  -0.0360
+ 8 imp4  std.err…        0.0469 0.0132  0.0271  0.0458  0.00373   0.0441  0.0348
+ 9 imp5  estimate        1.05   0.615  -0.0938  0.521  -0.0291    0.245  -0.0686
+10 imp5  std.err…        0.0465 0.0130  0.0269  0.0445  0.00367   0.0428  0.0351
+# ℹ 3 more variables: MIL2 &lt;dbl&gt;, PCGTHOU &lt;dbl&gt;, PERCHPOP &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -806,14 +790,14 @@ Next step: Use 'setx' method</code></pre>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>just_coefs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 10
-  (Inter…¹ AILAG    BRIT CWARCOW  DEMOC3 IWARC…²    LEFT   MIL2 PCGTHOU PERCHPOP
-     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-1    1.08  0.607 -0.106    0.583 -0.0314   0.187 -0.0867 0.112  -0.0163 -3.91e-4
-2    1.04  0.623 -0.125    0.520 -0.0334   0.201 -0.114  0.0874 -0.0142  5.02e-4
-3    0.999 0.637 -0.121    0.537 -0.0281   0.106 -0.0685 0.133  -0.0162 -3.14e-3
-4    1.03  0.625 -0.116    0.503 -0.0313   0.162 -0.0360 0.113  -0.0146 -1.57e-3
-5    1.05  0.615 -0.0938   0.521 -0.0291   0.245 -0.0686 0.106  -0.0193 -8.16e-5
-# … with abbreviated variable names ¹​`(Intercept)`, ²​IWARCOW2</code></pre>
+  `(Intercept)` AILAG    BRIT CWARCOW  DEMOC3 IWARCOW2    LEFT   MIL2 PCGTHOU
+          &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1         1.08  0.607 -0.106    0.583 -0.0314    0.187 -0.0867 0.112  -0.0163
+2         1.04  0.623 -0.125    0.520 -0.0334    0.201 -0.114  0.0874 -0.0142
+3         0.999 0.637 -0.121    0.537 -0.0281    0.106 -0.0685 0.133  -0.0162
+4         1.03  0.625 -0.116    0.503 -0.0313    0.162 -0.0360 0.113  -0.0146
+5         1.05  0.615 -0.0938   0.521 -0.0291    0.245 -0.0686 0.106  -0.0193
+# ℹ 1 more variable: PERCHPOP &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -824,14 +808,14 @@ Next step: Use 'setx' method</code></pre>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>just_ses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 10
-  (Interce…¹  AILAG   BRIT CWARCOW  DEMOC3 IWARC…²   LEFT   MIL2 PCGTHOU PERCH…³
-       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1     0.0485 0.0136 0.0279  0.0454 0.00380  0.0456 0.0362 0.0316 0.00255 0.00323
-2     0.0462 0.0129 0.0267  0.0436 0.00364  0.0443 0.0353 0.0305 0.00250 0.00305
-3     0.0455 0.0128 0.0264  0.0432 0.00364  0.0431 0.0343 0.0301 0.00246 0.00309
-4     0.0469 0.0132 0.0271  0.0458 0.00373  0.0441 0.0348 0.0312 0.00251 0.00317
-5     0.0465 0.0130 0.0269  0.0445 0.00367  0.0428 0.0351 0.0308 0.00248 0.00310
-# … with abbreviated variable names ¹​`(Intercept)`, ²​IWARCOW2, ³​PERCHPOP</code></pre>
+  `(Intercept)`  AILAG   BRIT CWARCOW  DEMOC3 IWARCOW2   LEFT   MIL2 PCGTHOU
+          &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1        0.0485 0.0136 0.0279  0.0454 0.00380   0.0456 0.0362 0.0316 0.00255
+2        0.0462 0.0129 0.0267  0.0436 0.00364   0.0443 0.0353 0.0305 0.00250
+3        0.0455 0.0128 0.0264  0.0432 0.00364   0.0431 0.0343 0.0301 0.00246
+4        0.0469 0.0132 0.0271  0.0458 0.00373   0.0441 0.0348 0.0312 0.00251
+5        0.0465 0.0130 0.0269  0.0445 0.00367   0.0428 0.0351 0.0308 0.00248
+# ℹ 1 more variable: PERCHPOP &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
