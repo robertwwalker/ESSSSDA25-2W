@@ -12,8 +12,7 @@ knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 
 ## Slides
 
-- [Slides in .pdf format](./slides/slidesDay1.pdf)
-- [A xaringan for presentation](https://rww.science/xaringan/ESSSSDA25-Day1/)
+- [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day1/)
 
 # The Data
 
