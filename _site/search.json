@@ -484,6 +484,18 @@
     ]
   },
   {
+    "objectID": "posts/day-2/index.html#spurious-regressions",
+    "href": "posts/day-2/index.html#spurious-regressions",
+    "title": "Day 2: Time Series, Stationarity, and ARIMA Models",
+    "section": "Spurious Regressions",
+    "text": "Spurious Regressions\n# Simulation considers replicating cross-sections\nx &lt;- rnorm(100)\ny &lt;- rnorm(100)\nsummary(lm(y ~ x))\nbeta &lt;- matrix(data=NA, nrow=100, ncol=4)\nbeta[1,] &lt;- summary(lm(y ~ x))$coefficients[2,]\nmy.df &lt;- data.frame(y=y, x=x)\nfor (i in 2:100) {\n  x2 &lt;- rep(x, i)\n  y2 &lt;- rep(y, i)\n  my.df2 &lt;- data.frame(x=x2, y=y2)\n  beta[i,] &lt;- summary(lm(y ~ x, data=my.df2))$coefficients[2,]\n  }\nplot(x=seq(1,100), y=beta[,4], main=\"Replicating Cross-Sections\", xlab=\"Number of Repetitions\", ylab=\"p-value\")\nabline(h=0.05, lty=2)\n\n# Simulation considers the spurious regressions problem\ny.ts &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\nx.ts &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\npar(mfrow=c(2,1))\nts.plot(y.ts)\nts.plot(x.ts)\nsummary(lm(y.ts ~ x.ts))\nfor (i in 1:1000) {\n  y.ts.sim &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\n  x.ts.sim &lt;- arima.sim(list(order = c(1,1,0), ar = -0.001), n = 200)\n  beta.ts[i] &lt;- summary(lm(y.ts.sim ~ x.ts.sim))$coefficients[2,4]\n  }\nplot(density(beta.ts), main=\"Spurious Regressions\")\ntable((beta.ts&lt;0.05))\nYule, in 1926, shows the consequences of regressing nonstationary series on one another. To replicate his result via simulation, let’s perform one. First, to generate two nonstationary series. Then regress them on each other and keep the p-value for the slope attached to \\(y_2\\).\n\nlibrary(tidyverse)\nSpurious &lt;- function(junk) {\ny1 &lt;- arima.sim(n=200, list(order=c(0,1,0)))\ny2 &lt;- arima.sim(n=200, list(order=c(0,1,0)))\nreturn(summary(lm(y1~y2))$coefficients[2,4])\n}\nSpurious.Result &lt;- data.frame(Res=sapply(1:1000, function(x) {Spurious(x)}))\n\nFinally, let’s plot the p-values.\n\nSpurious.Result %&gt;% ggplot(., aes(x=Res)) + geom_histogram()",
+    "crumbs": [
+      "Welcome!",
+      "Week 1",
+      "Day 2: Time Series, Stationarity, and ARIMA Models"
+    ]
+  },
+  {
     "objectID": "posts/day-4/index.html",
     "href": "posts/day-4/index.html",
     "title": "Day 4: Cointegration",
@@ -741,17 +753,5 @@
     "title": "ESSSSDA25-2W",
     "section": "",
     "text": "Welcome!\n\n\n2W: Advanced Time Series/Panel\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 14, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Time, Decomposition, and Summaries\n\n\n\n\n\n\npanel data\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2: Time Series, Stationarity, and ARIMA Models\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 22, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3: Dynamic Linear, ADL Models, and VARs\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4: Cointegration\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 24, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5: Equation Balance to Wrap Up Week 1\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6: Panel Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7: Missing Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 29, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8: Panel Models for Limited Outcomes\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 30, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9: DPD and GMM\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 31, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10: Causal Inference in Panels and TWFE\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 1, 2025\n\n\nRobert W. Walker\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/day-2/index.html#spurious-regressions",
-    "href": "posts/day-2/index.html#spurious-regressions",
-    "title": "Day 2: Time Series, Stationarity, and ARIMA Models",
-    "section": "Spurious Regressions",
-    "text": "Spurious Regressions\n# Simulation considers replicating cross-sections\nx &lt;- rnorm(100)\ny &lt;- rnorm(100)\nsummary(lm(y ~ x))\nbeta &lt;- matrix(data=NA, nrow=100, ncol=4)\nbeta[1,] &lt;- summary(lm(y ~ x))$coefficients[2,]\nmy.df &lt;- data.frame(y=y, x=x)\nfor (i in 2:100) {\n  x2 &lt;- rep(x, i)\n  y2 &lt;- rep(y, i)\n  my.df2 &lt;- data.frame(x=x2, y=y2)\n  beta[i,] &lt;- summary(lm(y ~ x, data=my.df2))$coefficients[2,]\n  }\nplot(x=seq(1,100), y=beta[,4], main=\"Replicating Cross-Sections\", xlab=\"Number of Repetitions\", ylab=\"p-value\")\nabline(h=0.05, lty=2)\n\n# Simulation considers the spurious regressions problem\ny.ts &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\nx.ts &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\npar(mfrow=c(2,1))\nts.plot(y.ts)\nts.plot(x.ts)\nsummary(lm(y.ts ~ x.ts))\nfor (i in 1:1000) {\n  y.ts.sim &lt;- arima.sim(list(order = c(1,1,0), ar = 0.007), n = 200)\n  x.ts.sim &lt;- arima.sim(list(order = c(1,1,0), ar = -0.001), n = 200)\n  beta.ts[i] &lt;- summary(lm(y.ts.sim ~ x.ts.sim))$coefficients[2,4]\n  }\nplot(density(beta.ts), main=\"Spurious Regressions\")\ntable((beta.ts&lt;0.05))\nYule, in 1926, shows the consequences of regressing nonstationary series on one another. To replicate his result via simulation, let’s perform one. First, to generate two nonstationary series. Then regress them on each other and keep the p-value for the slope attached to \\(y_2\\).\n\nlibrary(tidyverse)\nSpurious &lt;- function(junk) {\ny1 &lt;- arima.sim(n=200, list(order=c(0,1,0)))\ny2 &lt;- arima.sim(n=200, list(order=c(0,1,0)))\nreturn(summary(lm(y1~y2))$coefficients[2,4])\n}\nSpurious.Result &lt;- data.frame(Res=sapply(1:1000, function(x) {Spurious(x)}))\n\nFinally, let’s plot the p-values.\n\nSpurious.Result %&gt;% ggplot(., aes(x=Res)) + geom_histogram()",
-    "crumbs": [
-      "Welcome!",
-      "Week 1",
-      "Day 2: Time Series, Stationarity, and ARIMA Models"
-    ]
   }
 ]

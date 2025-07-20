@@ -8,8 +8,7 @@ image: "image.png"
 
 ## Slides
 
-- [Slides in .pdf format](./slides/slidesDay3.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day3/)
+- [A reveal presentation](https://robertwwalker.github.io/xaringan/ESSSSDA252W-Day3/)
 
 ## Dynamic Regression
 
