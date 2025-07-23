@@ -8,8 +8,7 @@ image: "image.jpg"
 
 ## Slides
 
-- [Slides in .pdf format](./slides/slidesDay5.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day5/)
+- [A reveal presentation](https://robertwwalker.github.io/xaringan/ESSSSDA252W-Day5/)
 
 ## Equation Balance
 

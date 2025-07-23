@@ -8,8 +8,7 @@ image: "image.png"
 
 ## Slides
 
-- [Slides in .pdf format](./slides/slidesDay4.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day4/)
+- [A reveal presentation](https://robertwwalker.github.io/xaringan/ESSSSDA252W-Day4/)
 
 ## A replication
 
