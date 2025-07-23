@@ -11,7 +11,7 @@
     "href": "posts/day-9/index.html",
     "title": "Day 9: DPD and GMM",
     "section": "",
-    "text": "Slides in .pdf format\nA xaringan for presentation",
+    "text": "A reveal presentation",
     "crumbs": [
       "Welcome!",
       "Week 2",
@@ -23,7 +23,7 @@
     "href": "posts/day-9/index.html#slides",
     "title": "Day 9: DPD and GMM",
     "section": "",
-    "text": "Slides in .pdf format\nA xaringan for presentation",
+    "text": "A reveal presentation",
     "crumbs": [
       "Welcome!",
       "Week 2",
@@ -752,6 +752,39 @@
     "href": "index.html",
     "title": "ESSSSDA25-2W",
     "section": "",
-    "text": "Welcome!\n\n\n2W: Advanced Time Series/Panel\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 14, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Time, Decomposition, and Summaries\n\n\n\n\n\n\npanel data\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2: Time Series, Stationarity, and ARIMA Models\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 22, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3: Dynamic Linear, ADL Models, and VARs\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4: Cointegration\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 24, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5: Equation Balance to Wrap Up Week 1\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6: Panel Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7: Missing Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 29, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8: Panel Models for Limited Outcomes\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 30, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9: DPD and GMM\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 31, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10: Causal Inference in Panels and TWFE\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 1, 2025\n\n\nRobert W. Walker\n\n\n\n\n\nNo matching items"
+    "text": "Welcome!\n\n\n2W: Advanced Time Series/Panel\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 14, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1: Time, Decomposition, and Summaries\n\n\n\n\n\n\npanel data\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2: Time Series, Stationarity, and ARIMA Models\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 22, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3: Dynamic Linear, ADL Models, and VARs\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4: Cointegration\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 24, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5: Equation Balance to Wrap Up Week 1\n\n\n\n\n\n\ntime series\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6: Panel Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7: Missing Data\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 29, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8: Panel Models for Limited Outcomes\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 30, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9: DPD and GMM\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 31, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10: Causal Inference in Panels and TWFE\n\n\n\n\n\n\npanel data\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 1, 2025\n\n\nRobert W. Walker\n\n\n\n\n\n\n\n\n\n\n\n\nSimulated Time Series and their ACF and PACF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/webr.html",
+    "href": "posts/welcome/webr.html",
+    "title": "webR in Quarto HTML Documents",
+    "section": "",
+    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "posts/day-3/webr.html",
+    "href": "posts/day-3/webr.html",
+    "title": "webR in Quarto HTML Documents",
+    "section": "",
+    "text": "This is a webR-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "posts/day-3/arimasim.html",
+    "href": "posts/day-3/arimasim.html",
+    "title": "Simulated Time Series and their ACF and PACF",
+    "section": "",
+    "text": "Using webr to showcase simulated arima processes, written in the form ARIMA(p, d, q).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "posts/day-3/index.html#an-arima-simulator",
+    "href": "posts/day-3/index.html#an-arima-simulator",
+    "title": "Day 3: Dynamic Linear, ADL Models, and VARs",
+    "section": "An Arima Simulator",
+    "text": "An Arima Simulator\nOn the web",
+    "crumbs": [
+      "Welcome!",
+      "Week 1",
+      "Day 3: Dynamic Linear, ADL Models, and VARs"
+    ]
   }
 ]

@@ -10,6 +10,10 @@ image: "image.png"
 
 - [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day3/)
 
+## An Arima Simulator
+
+[On the web](https://essssda25-2w.netlify.app/day-3/arimasim.html)
+
 ## Dynamic Regression
 
 Regression techniques can be reexamined through the lens of dynamic linear models and systems of linear equations.  Whether autoregressive distributed lag models or VAR systems and structural time series, regression approaches to time series almost inevitably culminate in thinking about causation as conceived by Clive Granger -- Granger causality.
