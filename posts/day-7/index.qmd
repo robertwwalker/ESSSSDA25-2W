@@ -8,8 +8,7 @@ image: "image.png"
 
 ## Slides
 
-- [Slides in .pdf format](./img/slidesDay7.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day7/)
+- [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day7/)
 
 ## Missing Data
 

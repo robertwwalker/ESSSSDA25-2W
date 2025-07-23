@@ -8,8 +8,7 @@ image: "image.jpg"
 
 ## Slides
 
-- [Slides in .pdf format](./img/slidesDay8.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day8/)
+- [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day8/)
 
 Two core issues remain: the spatial and the temporal.  There are fewer well worked diagnostics for this than for the pure linear case owing to **partial observability and/or coarse measurement** in some fashion or other.
 

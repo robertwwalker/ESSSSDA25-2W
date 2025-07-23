@@ -8,8 +8,7 @@ image: "image.jpg"
 
 ## Slides
 
-- [Slides in .pdf format](./img/slidesDay9.pdf)
-- [A xaringan for presentation](https://robertwwalker.github.io/xaringan/ESSSSDA22-Day9/)
+- [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day9/)
 
 ## R and GMM
 
