@@ -504,6 +504,22 @@ Note: The test of the variance against zero is one sided, and the two-sided
 <p>Notice stata tells you how to interpret the result.</p>
 <p><img src="CRootStata.png" class="img-fluid"></p>
 <p>And to reiterate, these conditions establish that either the MA(q) can be inverted to an infinite AR process with declining dependence through time or the AR(p) can be rewritten as an infinite order MA with each shock declining in weight through time.</p>
+<p>In R, <code>polyroot</code> can be used to obtain the roots. In this case, for the AR, we obtain</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">polyroot</span>(<span class="fu">c</span>(<span class="dv">1</span>,.<span class="dv">839</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.839+0i</code></pre>
+</div>
+</div>
+<p>the condition that <span class="math inline">\(abs(\rho) &lt; 1\)</span></p>
+<p>Similarly, the MA</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">polyroot</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.335</span>)) <span class="co"># our MA 4 has 1,2,3 equal zero</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.5379553-0.5379553i -0.5379553-0.5379553i -0.5379553+0.5379553i
+[4]  0.5379553+0.5379553i</code></pre>
+</div>
+</div>
 
 
 
