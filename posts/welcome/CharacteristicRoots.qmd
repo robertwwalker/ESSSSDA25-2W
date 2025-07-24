@@ -113,4 +113,4 @@ Notice stata tells you how to interpret the result.
 
 ![](CRootStata.png)
 
-
+And to reiterate, these conditions establish that either the MA(q) can be inverted to an infinite AR process with declining dependence through time or the AR(p) can be rewritten as an infinite order MA with each shock declining in weight through time.
