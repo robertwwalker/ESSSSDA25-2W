@@ -867,5 +867,17 @@
       "Week 2",
       "Day 6: Panel Data"
     ]
+  },
+  {
+    "objectID": "posts/day-10/index.html#difference-in-difference",
+    "href": "posts/day-10/index.html#difference-in-difference",
+    "title": "Day 10: Causal Inference in Panels and TWFE",
+    "section": "Difference in Difference",
+    "text": "Difference in Difference\n\nA nice tracker of DiD packages for R\nA nice exploration of the two-way Mundlak model by Badi Baltagi",
+    "crumbs": [
+      "Welcome!",
+      "Week 2",
+      "Day 10: Causal Inference in Panels and TWFE"
+    ]
   }
 ]

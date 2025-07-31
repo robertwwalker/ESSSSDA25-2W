@@ -11,3 +11,10 @@ image: "image.jpg"
 - [A reveal presentation](https://robertwwalker.github.io/Essex-slides/ESSSSDA252W-Day10/)
 
 ## Wrapping Up
+
+
+## Difference in Difference
+
+- [A nice tracker of DiD packages for R](https://asjadnaqvi.github.io/DiD/)
+
+- [A nice exploration of the two-way Mundlak model by Badi Baltagi](https://surface.syr.edu/cgi/viewcontent.cgi?article=1469&context=cpr)
