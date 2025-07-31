@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -273,6 +302,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#equation-balance" id="toc-equation-balance" class="nav-link" data-scroll-target="#equation-balance">Equation Balance</a></li>
+  <li><a href="#a-note-on-arch-and-garch" id="toc-a-note-on-arch-and-garch" class="nav-link" data-scroll-target="#a-note-on-arch-and-garch">A Note on ARCH and GARCH</a>
+  <ul class="collapse">
+  <li><a href="#arch-model-of-order-q" id="toc-arch-model-of-order-q" class="nav-link" data-scroll-target="#arch-model-of-order-q">ARCH Model of order <span class="math inline">\(q\)</span></a></li>
+  <li><a href="#garch-model" id="toc-garch-model" class="nav-link" data-scroll-target="#garch-model">GARCH Model</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -293,8 +327,34 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="equation-balance">Equation Balance</h2>
 <p>The <a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/balance-as-a-preestimation-test-for-time-series-analysis/41D4D675F25E087A142CB04F27634CC1">article by Pickup and Kellstedt</a> forms the basis for summary remarks on time series and a useful transition into the study of multiple time series formally for week two.</p>
 <p>The lingering issue that does not get adequate treatment owing to time is fractional integration methods. Indeed, <a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/equation-balance-and-dynamic-political-modeling/A6EBC3D683502460B9D7C1BE2B64C5F4">the article by Lebo and Grant (2016) summarising the issues in the 2016 special issue is worth digesting.</a></p>
+</section>
+<section id="a-note-on-arch-and-garch" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-on-arch-and-garch">A Note on ARCH and GARCH</h2>
+<p>ARCH and GARCH Models</p>
+<ul>
+<li>Models of the conditional volatility (variance) in the errors</li>
+<li>Widely used in financial econometrics with volatility in an assets being taken as an indicator of risk</li>
+</ul>
+<section id="arch-model-of-order-q" class="level3">
+<h3 class="anchored" data-anchor-id="arch-model-of-order-q">ARCH Model of order <span class="math inline">\(q\)</span></h3>
+<p><span class="math display">\[
+e_t = \sigma_t Z_t
+\]</span> <span class="math inline">\(Z_t\)</span> = white noise <span class="math inline">\(\sigma_t\)</span> = standard deviation</p>
+<p><span class="math display">\[
+\sigma^{2}_t = a_0 + a_1e^{2}_{t-1} + \ldots + a_{q}e^{2}_{t-q}
+\]</span></p>
+</section>
+<section id="garch-model" class="level3">
+<h3 class="anchored" data-anchor-id="garch-model">GARCH Model</h3>
+<ul>
+<li><p><span class="math inline">\(p\)</span> is order of the GARCH terms <span class="math inline">\(\sigma^2\)</span></p></li>
+<li><p><span class="math inline">\(q\)</span> is order of ARCH terms <span class="math inline">\(e^2\)</span></p></li>
+</ul>
+<p><span class="math display">\[\sigma^2_{t} = w + \underbrace{\Sigma_{i=1}^{q} a_i e^{2}_{t-i}}_{(ARCH components)} + \underbrace{\Sigma_{i=1}^{p} B_i \sigma^{2}_{t-i}}_{(GARCH components)}
+\]</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -807,5 +807,53 @@
     "title": "Wednesday Talk Links",
     "section": "",
     "text": "The talk slides"
+  },
+  {
+    "objectID": "posts/day-4/index.html#adl-and-cointegration",
+    "href": "posts/day-4/index.html#adl-and-cointegration",
+    "title": "Day 4: Cointegration",
+    "section": "ADL and Cointegration",
+    "text": "ADL and Cointegration\nThe error correction model is a restricted autoregressive distributed lag (ADL) (1,1) model (see Hendry, 1995):\n\\[\n(1-L)Yt = B_0 + B_1(1-L)X_t + a(Y_{t-1} - C_0 - C_1X_{t-1}) + e_t\n\\] \\[\nY_t - Y_{t-1} = B_0 + B_1X_t - B_1X_{t-1} + aY_{t-1} + aC_0 - aC_1X_{t-1} + e_t\n\\] \\[\nY_t = B_0 + aC_0 + Y_{t-1} + aY_{t-1} + B_1 X_t - (B_1 + aC_1)X_{t-1} + e_t\n\\]\nif Y and X cointegrate then a should be less than 1 in absolute value and carry a negative sign\nADL (1,1) model - 1 lag of Y and 1 lag of X\n\\[\nY_t = B_0  -aC_0 + (1-a)Y_{t-1} + B_1 X_t - (B_1 -aC_1)X_{t-1} + e_t\n\\]\nif a = -.5, this implies that the coefficient on aYt-1 = (1-.5) = .5, so 50% of a shock to Y at time t will erode in each subsequent period.\nReference: David Hendry. 1995. Dynamic Econometrics. Oxford: Oxford University Press",
+    "crumbs": [
+      "Welcome!",
+      "Week 1",
+      "Day 4: Cointegration"
+    ]
+  },
+  {
+    "objectID": "posts/day-4/index.html#cointegration-and-error-correction",
+    "href": "posts/day-4/index.html#cointegration-and-error-correction",
+    "title": "Day 4: Cointegration",
+    "section": "Cointegration and Error Correction",
+    "text": "Cointegration and Error Correction\nStudying long-run relationships between two variables \\(Y_t\\) and \\(X_t\\).\nQuestion: do Y and X travel together thru time in dynamic equilibrium?\nMethodology developed by Engle and Granger 1987\n\nDetermine if \\(Y_t\\) and \\(X_t\\) are nonstationary\nIf \\(Y_t\\) and \\(X_t\\) are nonstationary, regress \\(Y_t\\) on \\(X_t\\) and save residuals. This is called the cointegrating regression\nDo unit-root test on residuals - if residuals are stationary, \\(Y_t\\) and \\(X_t\\) cointegrate (travel together over time). If residuals are not stationary then \\(Y_t\\) and \\(X_t\\) do not cointegrate\n\nEngle and Granger show that if \\(Y_t\\) and \\(X_t\\) cointegrate, then their relationship can be specified as an error correction model:\n\\[\n(1-L)Y_t = B_0 + B_1(1-L)X_t + a(\\underbrace{Y_{t-1} - c_0 - c_1X_{t-1}}_{\\textrm{Cointegration residual, lagged}}) + e_t\n\\]\nIn this model \\(B_1\\) captures the short-run effect of X on Y\n\\((Y_{t-1} -c_0 - c_1X_{t-1})\\) is called the error correction mechanism and it captures the long-run effect of X on Y. In the Engle-Granger “two-step” methodology, the error correction mechanism is measured by the residuals from the cointegrating regression lagged back 1 period\nThe coefficient \\(a\\) is an adjustment parameter which is expected to be less than 1 in absolute value and to carry a negative sign. The larger the absolute value of a, the stronger the error correction mechanism. a indicates the speed with which a shock to Y is eroded by the cointegrating realtionship between Y and X\nThe error correction model is estimated by OLS regression.\nNote that cointegration does not imply causation, and it is up to the investigator to determine if \\(Y_t\\) or \\(X_t\\) is the dependent variable and to defend the implicit assumption of 1-way causation.",
+    "crumbs": [
+      "Welcome!",
+      "Week 1",
+      "Day 4: Cointegration"
+    ]
+  },
+  {
+    "objectID": "posts/day-5/index.html#a-note-on-arch-and-garch",
+    "href": "posts/day-5/index.html#a-note-on-arch-and-garch",
+    "title": "Day 5: Equation Balance to Wrap Up Week 1",
+    "section": "A Note on ARCH and GARCH",
+    "text": "A Note on ARCH and GARCH\nARCH and GARCH Models\n\nModels of the conditional volatility (variance) in the errors\nWidely used in financial econometrics with volatility in an assets being taken as an indicator of risk\n\n\nARCH Model of order \\(q\\)\n\\[\ne_t = \\sigma_t Z_t\n\\] \\(Z_t\\) = white noise \\(\\sigma_t\\) = standard deviation\n\\[\n\\sigma^{2}_t = a_0 + a_1e^{2}_{t-1} + \\ldots + a_{q}e^{2}_{t-q}\n\\]\n\n\nGARCH Model\n\n\\(p\\) is order of the GARCH terms \\(\\sigma^2\\)\n\\(q\\) is order of ARCH terms \\(e^2\\)\n\n\\[\\sigma^2_{t} = w + \\underbrace{\\Sigma_{i=1}^{q} a_i e^{2}_{t-i}}_{(ARCH components)} + \\underbrace{\\Sigma_{i=1}^{p} B_i \\sigma^{2}_{t-i}}_{(GARCH components)}\n\\]",
+    "crumbs": [
+      "Welcome!",
+      "Week 1",
+      "Day 5: Equation Balance to Wrap Up Week 1"
+    ]
+  },
+  {
+    "objectID": "posts/day-9/index.html#the-i-construct",
+    "href": "posts/day-9/index.html#the-i-construct",
+    "title": "Day 9: DPD and GMM",
+    "section": "The I() construct",
+    "text": "The I() construct\n?formula gives you insights into the way to structure generic formula objects in R. The I() construct is a consistent and clear way in R’s foundations to specify functional operations on variables.",
+    "crumbs": [
+      "Welcome!",
+      "Week 2",
+      "Day 9: DPD and GMM"
+    ]
   }
 ]
