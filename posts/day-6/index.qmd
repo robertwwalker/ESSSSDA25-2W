@@ -116,6 +116,10 @@ pbnftest(re, test = "lbi")
 
 - `ranef` and `fixef` extract the random and fixed effects, respectively.
 
+## The `plm` vignette
+
+The `plm` package contains an [excellent syntactical vignette](https://cran.r-project.org/web/packages/plm/vignettes/A_plmPackage.html) for the functions it provides.
+
 
 
 
