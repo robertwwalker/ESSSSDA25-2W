@@ -186,3 +186,18 @@ Mod.CS <- glm(dispute~ dem+growth+allies+contig+capratio+trade+prefail+py+I(py^2
 summary(Mod.CS)
 ```
 
+
+```{r}
+library(ggplot2)
+Data.Counterfactual <- data.frame(dem=5, growth=0, allies=1, contig=1, capratio=1, trade=0, prefail=0, py=seq(1,41))
+Data.Counterfactual$Pr.Fight <- predict(Mod.CS, newdata=Data.Counterfactual, type="response")
+Data.Counterfactual |> ggplot() + aes(x=py, y=Pr.Fight) + geom_line()
+```
+
+## The Markov Processes
+
+Are the simplest time series models for limited dependent variables.
+
+The idea is simple; the current realization depends on the prior values.
+
+
