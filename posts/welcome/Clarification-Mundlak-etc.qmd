@@ -27,23 +27,25 @@ Recalling the Total as the sum of the Within and Between in sum of squares langu
 
 Two parts.  The `within time` deviations -- a centered cross-section or notationally $C(t)$ -- with deviations described by $y^{C(t)} = y_{it} - \overline{y}_{t}$.  These are the deviations of each unit from the time mean.  Applied to all t in the same fashion, these must be mean zero.  There is also the `between time` construct -- the variation in those time averages -- that are deviations from the overall mean of $y$ as $y^{B(t)} = \overline{y}_{t} - \overline{y}$ that are also mean zero.
 
-The criticism is that over time changes -- the between in this case -- are aggregated away and that only static cross-sectional variance is explcitly modeled.
+The criticism is that over time changes -- the between in this case -- are aggregated away and that only static cross-sectional variance is explcitly modeled.  The other problem is that the dynamic implications are ignored; what happens because our estimates are applied the time-averaged data which may be impacted?  This is accounting.  It interacts with the first day arguments about random sampling versus convenience sampling; there are only so many countries.  If one country undergoes some permanent change, we might should account for the $\frac{1}{N}$ impact on the mean.
 
 ## Mundlak Provides the Reason
 
 The one-way Mundlak model applied to the unit-heterogeneity case establishes that 
 
 $$
-y_{it} = \alpha + X_{it}\beta + \beta^{B}\overline{x}_{i} + (\nu_{i} + \epsilon_{it})
+y_{it} = \alpha + X_{it}\beta + \beta^{B_i}\overline{x}^{B(i)}_{i} + (\nu_{i} + \epsilon_{it})
 $$
 can be estimated using either OLS or GLS.  The only problem is the standard errors which will differ because of the induced correlation structures if the variance of the $\nu_{i}$ is non-zero.
 
 The same argument applies in exactly the same way when we reverse the indices.
 
 $$
-y_{it} = \alpha + X_{it}\beta + \beta^{B_{t}}\overline{x}^{B(t)} + (\nu_{i} + \epsilon_{it})
+y_{it} = \alpha + X_{it}\beta + \beta^{B_{t}}\overline{x}_{t}^{B(t)} + (\nu_{i} + \epsilon_{it})
 $$
 The coefficients $\beta^{B_{t}}$ describe how the mean of $y_{it}$ varies over time as a function of the (unit-) averaged variables X.
+
+The model is instructive.  If we suppose a counterfactual in some variable $x$, if permanent over time, has a combined impact of $\beta + \beta^{B_{t}}$ whereas a temporary one-unit shock is $\beta$.
 
 ## Bringing in Heterogeneity and the two-way Mundlak model
 
@@ -61,7 +63,7 @@ The very tricky part of this model is to think about the counterfactual that we 
 
 If I want to examine how $x$ changes, I must be precise about what is happening.  For example, suppose that one *country* [in a country-year data structure] experiences a time permanent change in $x$ of one unit whereas another *country* experiences a change of one unit in a given period that reverts immediately thereafter.  Beneath the surface, stationarity type considerations are still paramount, what is going to happen to the over time and over country averages because we have a direct measure of $\beta^{W}$.  If we suppose that the data are stationary across units and time generically, then the impact for the first country is given by $\beta^{W}$ plus $\beta^{B(i)}$ because there is a permanent change in $\overline{x}_{i}$ by stipulation.  But algebraically, there is also a consequence induced by $\beta^{B(t)}$.
 
-In the counterfactual scenario for my first country, $\overline{x}_{t}$ changes by $\frac{1}{N}$ and the impact of this change is $\beta^{B(t)}$.  For the second country, $\overline{x}_{t}$ changes by $\frac{1}{NT}$ with impact $\beta^{B(t)}$.  $(T-1)*\beta^{B(t)}$.  A complete analysis is explicit about this second effect as well as the first in accounting what we wish to estimate from data.
+In the counterfactual scenario for my first country, $\overline{x}_{t}$ changes by $\frac{1}{N}$ and the impact of this change is $\beta^{B(t)}$.  For the second country, $\overline{x}_{t}$ changes by $\frac{1}{NT}$ with impact $\beta^{B(t)}$.  $(T-1)*\beta^{B(t)}$ is the net difference.  A complete analysis is explicit about this second effect as well as the first in accounting what we wish to estimate from data.
 
 Equations 13-15 of Baltagi make this clear.  The sixth edition of his text contains this information: Baltagi, B.H., 2021, Econometric Analysis of Panel Data, 6th edition (Springer,
 Switzerland).
@@ -70,4 +72,4 @@ The two-way within estimator is a transformed regression of
 
 $y_{it} = y_{it} - \overline{y}_{i} - \overline{y}_{t} + \overline{y}_{it}$ and $x_{it} = x_{it} - \overline{x}_{i} - \overline{x}_{t} + \overline{x}_{it}$
 
-and changes in $x$ have to be accounted precisely.  We will typically (though implicitly) invoke stationarity or limit type arguments to ignore the $(T-1)*\beta^{B(t)}$ that counterfactuals induce. 
+and changes in $x$ have to be accounted precisely.  We will typically (though implicitly) invoke stationarity or limit type arguments to ignore the $(T-1)*\beta^{B(t)}$ or the $(N-1)*\beta^{B(i)}$ that counterfactuals induce. 
