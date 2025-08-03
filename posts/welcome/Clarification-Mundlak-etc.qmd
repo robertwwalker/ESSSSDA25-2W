@@ -5,7 +5,7 @@ categories: [panel data, time series, code, analysis]
 image: "thumbnail.png"
 ---
 
-My discussion of two-way fixed effects and the Mundlak estimator on Friday merits backfilling and rendering clear some things I have previously throughout the last week and to some degree for the two weeks.
+My discussion of two-way fixed effects and the Mundlak estimator on Friday merits backfilling and rendering clear some things I have previously  said or noted throughout the last week and to some degree for the two weeks that I should have been more explicit in combining.
 
 ## The Time Series Problem
 
@@ -27,7 +27,7 @@ Recalling the Total as the sum of the Within and Between in sum of squares langu
 
 Two parts.  The `within time` deviations -- a centered cross-section or notationally $C(t)$ -- with deviations described by $y^{C(t)} = y_{it} - \overline{y}_{t}$.  These are the deviations of each unit from the time mean.  Applied to all t in the same fashion, these must be mean zero.  There is also the `between time` construct -- the variation in those time averages -- that are deviations from the overall mean of $y$ as $y^{B(t)} = \overline{y}_{t} - \overline{y}$ that are also mean zero.
 
-The criticism is that over time changes -- the between in this case -- are aggregated away and that only static cross-sectional variance is explcitly modeled.  The other problem is that the dynamic implications are ignored; what happens because our estimates are applied the time-averaged data which may be impacted?  This is accounting.  It interacts with the first day arguments about random sampling versus convenience sampling; there are only so many countries.  If one country undergoes some permanent change, we might should account for the $\frac{1}{N}$ impact on the mean.
+The criticism is that over time changes -- the between in this case -- are aggregated away and that only static cross-sectional variance is explicitly modeled.  The other problem is that the dynamic implications are ignored; what happens because our estimates are applied the time-averaged data which may be impacted?  This is accounting.  It interacts with the first day arguments about random sampling versus convenience sampling; there are only so many countries.  If one country undergoes some permanent change, we might should account for the $\frac{1}{N}$ impact on the mean.  With enough countries, it is negligible, or thought so anyway.
 
 ## Mundlak Provides the Reason
 
