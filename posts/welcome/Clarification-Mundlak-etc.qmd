@@ -41,7 +41,7 @@ can be estimated using either OLS or GLS.  The only problem is the standard erro
 The same argument applies in exactly the same way when we reverse the indices.
 
 $$
-y_{it} = \alpha + X_{it}\beta + \beta^{B_{t}}\overline{x}_{t}^{B(t)} + (\nu_{i} + \epsilon_{it})
+y_{it} = \alpha + X_{it}\beta + \beta^{B_{t}}\overline{x}_{t}^{B(t)} + (\nu_{t} + \epsilon_{it})
 $$
 The coefficients $\beta^{B_{t}}$ describe how the mean of $y_{it}$ varies over time as a function of the (unit-) averaged variables X.
 
