@@ -70,6 +70,6 @@ Switzerland).
 
 The two-way within estimator is a transformed regression of 
 
-$y_{it} = y_{it} - \overline{y}_{i} - \overline{y}_{t} + \overline{y}_{it}$ and $x_{it} = x_{it} - \overline{x}_{i} - \overline{x}_{t} + \overline{x}_{it}$
+$y_{it} = y_{it} - \overline{y}_{i} - \overline{y}_{t} + \overline{y}$ and $x_{it} = x_{it} - \overline{x}_{i} - \overline{x}_{t} + \overline{x}$
 
 and changes in $x$ have to be accounted precisely.  We will typically (though implicitly) invoke stationarity or limit type arguments to ignore the $(T-1)*\beta^{B(t)}$ or the $(N-1)*\beta^{B(i)}$ that counterfactuals induce. 
