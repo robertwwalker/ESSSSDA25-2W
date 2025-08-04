@@ -73,3 +73,15 @@ The two-way within estimator is a transformed regression of
 $y_{it} = y_{it} - \overline{y}_{i} - \overline{y}_{t} + \overline{y}$ and $x_{it} = x_{it} - \overline{x}_{i} - \overline{x}_{t} + \overline{x}$
 
 and changes in $x$ have to be accounted precisely.  We will typically (though implicitly) invoke stationarity or limit type arguments to ignore the $(T-1)*\beta^{B(t)}$ or the $(N-1)*\beta^{B(i)}$ that counterfactuals induce.  Most important to note, they are temporal or spatial dependence of a form that we have largely *controlled* rather than modeled in some explicit form.  There are temporal distributed lag models, there are spatial lags and STADL!  The question should almost surely determine which are of greatest interest.
+
+## Algebraics
+
+```{r}
+Counterfactual <- data.frame(Case=c(1,1,2,2), Time=c(1,2,1,2), x0=c(0,0,0,0), xT=c(1,1,1,0))
+Counterfactual
+```
+Suppose a 2 way Mundlak regression or 2 way fixed effects with a regression model setting all regression parameters to 1, the expected value in the first case is 0.  When the counterfactual is implemented, we can account for it as follows.  What changes?  The pooled regression coefficient will increase y by 1.  That's really the easy part.
+
+The new unit mean -- expected value of $x_i$ -- should be 1 because of the change for case 1.  As an algerbraic matter,   Case 2 is just a shock so perhaps no change in expectation.  The new time mean for both increases proportionally by the same $\frac{1}{N}$ -- expected value of x -- in that period.  The change continues for Case 1 but vanishes for Case 2.
+
+I am not suggesting that adjustment by the $\frac{1}{N}$ is justified, justifiable,  or otherwise, but am pointing out that the identities have implications and it is worthwhile to think them through.
